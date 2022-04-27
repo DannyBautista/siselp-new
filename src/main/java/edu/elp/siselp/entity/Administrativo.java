@@ -9,9 +9,9 @@ import javax.persistence.Table;
 @Table(name = "docente")
 @PrimaryKeyJoinColumn(referencedColumnName="idpersona")
 
-public class Administrativo {
+public class Administrativo extends Persona{
 
-    @Column(name = "cod_administrativo")
+    @Column(name = "cod_administrativo", length = 23)
     private String codAdmin;
 
     public Administrativo() {

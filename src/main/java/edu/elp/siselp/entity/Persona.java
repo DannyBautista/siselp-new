@@ -9,6 +9,8 @@ import java.util.Date;
 
 public class Persona {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idpersona;
@@ -118,4 +120,20 @@ public class Persona {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "idpersona=" + idpersona +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad='" + edad + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", dni='" + dni + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                '}';
+    }
 }
+
