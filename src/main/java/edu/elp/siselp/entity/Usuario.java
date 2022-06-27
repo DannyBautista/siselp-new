@@ -6,17 +6,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "usario")
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idusuario;
+    Long idusuario;
 
     private String username;
-    private String contraseña;
+    private String contrasenia;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(referencedColumnName = "idpersona")
     private Persona persona;
 
@@ -30,30 +30,43 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(long idusuario) {
+    public Usuario(Long idusuario) {
         this.idusuario = idusuario;
     }
 
-    public Usuario(long idusuario, String username, String contraseña, Persona persona) {
-        this.idusuario = idusuario;
+    public Usuario(String username, String contrasenia, Persona persona, Set<Rol> roles) {
         this.username = username;
-        this.contraseña = contraseña;
-        this.persona = persona;
-    }
-
-    public Usuario(long idusuario, String username, String contraseña, Persona persona, Set<Rol> roles) {
-        this.idusuario = idusuario;
-        this.username = username;
-        this.contraseña = contraseña;
+        this.contrasenia = contrasenia;
         this.persona = persona;
         this.roles = roles;
     }
 
-    public long getIdusuario() {
+    public Usuario(Long idusuario, String username, String contrasenia, Persona persona) {
+        this.idusuario = idusuario;
+        this.username = username;
+        this.contrasenia = contrasenia;
+        this.persona = persona;
+    }
+
+    public Usuario(Long idusuario, String username, String contrasenia, Persona persona, Set<Rol> roles) {
+        this.idusuario = idusuario;
+        this.username = username;
+        this.contrasenia = contrasenia;
+        this.persona = persona;
+        this.roles = roles;
+    }
+
+    public Usuario(String username, String contrasenia, Persona persona) {
+        this.username = username;
+        this.contrasenia = contrasenia;
+        this.persona = persona;
+    }
+
+    public Long getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(long idusuario) {
+    public void setIdusuario(Long idusuario) {
         this.idusuario = idusuario;
     }
 
@@ -65,12 +78,12 @@ public class Usuario {
         this.username = username;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public Persona getPersona() {

@@ -6,23 +6,22 @@ import java.util.Date;
 @Entity
 @Table(name = "persona")
 @Inheritance( strategy = InheritanceType.JOINED )
-
 public class Persona {
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idpersona")
     private Long idpersona;
 
-    @Column(name = "nombre" , length = 50, nullable = false)
+    @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
-    @Column(name = "apellido" , length = 100, nullable = false)
+    @Column(name = "apellido", length = 100, nullable = false)
     private String apellido;
 
-    @Column(name = "edad" , length = 10)
+    @Column(name = "edad", length = 10)
     private String edad;
+
     private String sexo;
     private String dni;
     private String direccion;
@@ -123,17 +122,15 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" +
+        return
                 "idpersona=" + idpersona +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad='" + edad + '\'' +
-                ", sexo='" + sexo + '\'' +
-                ", dni='" + dni + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                '}';
+                        ", nombre='" + nombre + '\'' +
+                        ", apellido='" + apellido + '\'' +
+                        ", edad='" + edad + '\'' +
+                        ", sexo='" + sexo + '\'' +
+                        ", dni='" + dni + '\'' +
+                        ", direccion='" + direccion + '\'' +
+                        ", telefono='" + telefono + '\'' +
+                        ", fechaNacimiento=" + fechaNacimiento;
     }
 }
-

@@ -1,11 +1,12 @@
 package edu.elp.siselp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "escuela")
-
+@Table(name="escuela")
 public class Escuela {
 
     @Id
@@ -16,23 +17,11 @@ public class Escuela {
 
     private String denominacion;
 
-
-    @OneToMany(mappedBy = "escuela")
-    private List<Estudiante> estudianteList;
-
-    public List<Estudiante> getEstudianteList() {
-        return estudianteList;
-    }
-
-    public void setEstudianteList(List<Estudiante> estudianteList) {
-        this.estudianteList = estudianteList;
-    }
+    //@OneToMany(mappedBy = "escuela", fetch = FetchType.LAZY)
+    //@JsonIgnore
+    //private List<Estudiante> estudianteLis;
 
     public Escuela() {
-    }
-
-    public Long getIdescuela() {
-        return idescuela;
     }
 
     public Escuela(Long idescuela) {
@@ -42,6 +31,10 @@ public class Escuela {
     public Escuela(String codigo, String denominacion) {
         this.codigo = codigo;
         this.denominacion = denominacion;
+    }
+
+    public Long getIdescuela() {
+        return idescuela;
     }
 
     public void setIdescuela(Long idescuela) {
@@ -63,4 +56,5 @@ public class Escuela {
     public void setDenominacion(String denominacion) {
         this.denominacion = denominacion;
     }
+
 }

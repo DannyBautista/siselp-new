@@ -13,10 +13,13 @@ public class PersonaServiceImpl implements IPersonaService {
 
     @Autowired
     private IPersonaDao personaDao;
+
     @Override
     public List<Persona> listaPersonas() {
+
         List<Persona> personaList = this.personaDao.findAll();
-        for (Persona persona:personaList){
+
+        for (Persona persona: personaList){
             System.out.println(persona.toString());
         }
         return personaList;
@@ -24,6 +27,6 @@ public class PersonaServiceImpl implements IPersonaService {
 
     @Override
     public Persona obtenerPersonaByDni(String dni) {
-        return null;
+        return this.personaDao.buscarPersona(dni);
     }
 }

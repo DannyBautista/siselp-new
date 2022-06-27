@@ -4,29 +4,24 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "rol")
-
 public class Rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long idrol;
+    private Long idrol;
 
     @Column(name = "nombrerol", length = 50)
-    private  String nombrerol;
+    private String nombrerol;
 
     public Rol() {
-    }
-
-    public Rol(Long idrol, String nombrerol) {
-        this.idrol = idrol;
-        this.nombrerol = nombrerol;
     }
 
     public Rol(Long idrol) {
         this.idrol = idrol;
     }
 
-    public Rol(String nombrerol) {
+    public Rol(Long idrol, String nombrerol) {
+        this.idrol = idrol;
         this.nombrerol = nombrerol;
     }
 
